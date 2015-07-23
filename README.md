@@ -1,4 +1,4 @@
-Drone Callback
+Callback
 ==============
 
-Small application to handle drone notifies, and initiate tower job template to deploy application
+Small application to handle drone notifies to initiate an Ansible tower job template to automatically deploy application
