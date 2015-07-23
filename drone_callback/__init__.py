@@ -9,8 +9,8 @@ import logging
 import json
 
 
-@post('/deploy/<app_name>/<app_port:int>')
-def deploy_application(app_name, app_port):
+@post('/deploy/<app_name>/<app_port:int>/<repo_loc>')
+def deploy_application(app_name, app_port, repo_loc):
     token = authenticate()
     post_data = json.loads(request.body.read())
     if (
@@ -32,7 +32,8 @@ def deploy_application(app_name, app_port):
             data = {
                 'extra_vars': {
                     'app_name': app_name,
-                    'app_port': app_port
+                    'app_port': app_port,
+                    'repo_location': repo_loc
                 }
             }
             result = execute_api_request(url, data, token)
